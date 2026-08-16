@@ -60,7 +60,6 @@
       { name: "Kingdom of Saudi Arabia", code: "sa" }
     ],
     AIPPM: [
-      { name: "Abhijeet Dipke (Cockroach Janta Party)" },
       { name: "Akhilesh Yadav (Samajwadi Party)" },
       { name: "Amit Shah (Bharatiya Janata Party)" },
       { name: "Anurag Singh Thakur (Bharatiya Janata Party)" },
@@ -96,7 +95,6 @@
       { name: "Raghav Chadha (Aam Aadmi Party)" },
       { name: "Sachin Pilot (Indian National Congress)" },
       { name: "Sanjay Raut (Shiv Sena (Uddhav Balasaheb Thackeray))" },
-      { name: "Saurav Das (Cockroach Janta Party)" },
       { name: "Shashi Tharoor (Indian National Congress)" },
       { name: "Smriti Irani (Bharatiya Janata Party)" },
       { name: "Sudhanshu Trivedi (Bharatiya Janata Party)" },
@@ -152,6 +150,8 @@
   const collegeInput = document.getElementById("college");
   const munExperienceSelect = document.getElementById("munExperience");
   const ebSection = document.getElementById("ebSection");
+  const ebCardUNHRC = document.getElementById("ebCardUNHRC");
+  const ebCardAIPPM = document.getElementById("ebCardAIPPM");
 
   const registrationTypeInputs = Array.from(document.querySelectorAll('input[name="registrationType"]'));
   const delegateCountInput = document.getElementById("numberOfDelegates");
@@ -457,7 +457,9 @@
     input.addEventListener("change", () => {
       state.committee = input.value;
       resetPortfolioSelections();
-      ebSection.hidden = state.committee !== "UNHRC";
+      ebSection.hidden = state.committee !== "UNHRC" && state.committee !== "AIPPM";
+      ebCardUNHRC.hidden = state.committee !== "UNHRC";
+      ebCardAIPPM.hidden = state.committee !== "AIPPM";
       setError("committee", "");
     });
   });

@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AIKTCMUN 2026 — Delegate Registration</title>
+<meta name="description" content="Official delegate registration portal for AIKTC Model United Nations 2026, 18–19 September 2026, AIKTC New Panvel.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- ================= BACKGROUND GRATICULE ================= -->
+<div class="graticule" aria-hidden="true"></div>
+
+<!-- ================= HEADER ================= -->
+<header class="site-header">
+  <div class="header-inner">
+    <div class="brand">
+      <img src="logo.png" alt="AIKTCMUN official seal" class="brand-seal">
+      <div class="brand-text">
+        <span class="brand-eyebrow">AIKTC Model United Nations</span>
+        <span class="brand-title">AIKTCMUN <em>2026</em></span>
+      </div>
+    </div>
+    <div class="brand-meta">
+      <span class="meta-line">18–19 September 2026</span>
+      <span class="meta-dot" aria-hidden="true">&middot;</span>
+      <span class="meta-line">AIKTC, New Panvel</span>
+    </div>
+  </div>
+</header>
+
+<!-- ================= PROGRESS INDICATOR ================= -->
+<nav class="progress-rail" aria-label="Registration progress">
+  <ol class="progress-list" id="progressList">
+    <li class="progress-step" data-step="1" aria-current="step">
+      <span class="step-badge"><span class="step-num">01</span></span>
+      <span class="step-label">Registration</span>
+    </li>
+    <li class="progress-step" data-step="2">
+      <span class="step-badge"><span class="step-num">02</span></span>
+      <span class="step-label">Representative</span>
+    </li>
+    <li class="progress-step" data-step="3">
+      <span class="step-badge"><span class="step-num">03</span></span>
+      <span class="step-label">Delegates</span>
+    </li>
+    <li class="progress-step" data-step="4">
+      <span class="step-badge"><span class="step-num">04</span></span>
+      <span class="step-label">Portfolios</span>
+    </li>
+    <li class="progress-step" data-step="5">
+      <span class="step-badge"><span class="step-num">05</span></span>
+      <span class="step-label">Payment</span>
+    </li>
+    <li class="progress-step" data-step="6">
+      <span class="step-badge"><span class="step-num">06</span></span>
+      <span class="step-label">Review</span>
+    </li>
+    <li class="progress-step" data-step="7">
+      <span class="step-badge"><span class="step-num">07</span></span>
+      <span class="step-label">Confirmation</span>
+    </li>
+  </ol>
+</nav>
+
+<!-- ================= MAIN ================= -->
+<main class="wizard" id="wizard">
+
+  <!-- ============ STEP 1 — REGISTRATION ============ -->
+  <section class="step-panel" data-step="1" id="panel-1" aria-labelledby="step1-title">
+    <div class="panel-card">
+      <p class="panel-eyebrow">Step 01</p>
+      <h1 class="panel-title" id="step1-title">How are you registering?</h1>
+      <p class="panel-sub">Select the format that describes your delegation. Groups may register up to six delegates under one representative.</p>
+
+      <div class="choice-grid" role="radiogroup" aria-labelledby="step1-title">
+        <button type="button" class="choice-card" data-value="individual" data-group="registrationType" role="radio" aria-checked="false">
+          <span class="choice-icon" aria-hidden="true">
+            <svg viewBox="0 0 48 48" fill="none"><circle cx="24" cy="16" r="8" stroke="currentColor" stroke-width="2"/><path d="M9 40c0-8.284 6.716-15 15-15s15 6.716 15 15" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+          </span>
+          <span class="choice-name">Individual Registration</span>
+          <span class="choice-desc">Register as a single delegate</span>
+          <span class="choice-check" aria-hidden="true">&#10003;</span>
+        </button>
+
+        <button type="button" class="choice-card" data-value="group" data-group="registrationType" role="radio" aria-checked="false">
+          <span class="choice-icon" aria-hidden="true">
+            <svg viewBox="0 0 48 48" fill="none"><circle cx="16" cy="15" r="6.5" stroke="currentColor" stroke-width="2"/><circle cx="32" cy="15" r="6.5" stroke="currentColor" stroke-width="2"/><path d="M5 39c0-6.627 4.925-12 11-12s11 5.373 11 12M21 39c0-6.627 4.925-12 11-12s11 5.373 11 12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+          </span>
+          <span class="choice-name">Group Registration</span>
+          <span class="choice-desc">Register multiple delegates together</span>
+          <span class="choice-check" aria-hidden="true">&#10003;</span>
+        </button>
+      </div>
+
+      <div class="field-error" id="err-registrationType" role="alert" aria-live="polite"></div>
+
+      <div class="group-size-block" id="groupSizeBlock" hidden>
+        <p class="block-label">How many delegates are you registering?</p>
+        <div class="size-selector" role="radiogroup" aria-label="Number of delegates" id="sizeSelector">
+          <button type="button" class="size-pill" data-value="2" data-group="groupSize" role="radio" aria-checked="false">2</button>
+          <button type="button" class="size-pill" data-value="3" data-group="groupSize" role="radio" aria-checked="false">3</button>
+          <button type="button" class="size-pill" data-value="4" data-group="groupSize" role="radio" aria-checked="false">4</button>
+          <button type="button" class="size-pill" data-value="5" data-group="groupSize" role="radio" aria-checked="false">5</button>
+          <button type="button" class="size-pill" data-value="6" data-group="groupSize" role="radio" aria-checked="false">6</button>
+        </div>
+        <div class="field-error" id="err-groupSize" role="alert" aria-live="polite"></div>
+      </div>
+
+      <div class="divider-orn" aria-hidden="true"><span></span><i></i><span></span></div>
+
+      <p class="block-label">Registration category</p>
+      <p class="panel-sub small">This determines your per-delegate registration fee.</p>
+      <div class="choice-grid two-col" role="radiogroup" aria-label="Registration category">
+        <button type="button" class="choice-card compact" data-value="interCollege" data-group="registrationCategory" role="radio" aria-checked="false">
+          <span class="choice-name">Inter-College</span>
+          <span class="choice-desc">Delegates from other institutions</span>
+          <span class="choice-check" aria-hidden="true">&#10003;</span>
+        </button>
+        <button type="button" class="choice-card compact" data-value="inHouse" data-group="registrationCategory" role="radio" aria-checked="false">
+          <span class="choice-name">In-House</span>
+          <span class="choice-desc">Delegates from AIKTC</span>
+          <span class="choice-check" aria-hidden="true">&#10003;</span>
+        </button>
+      </div>
+      <div class="field-error" id="err-registrationCategory" role="alert" aria-live="polite"></div>
+    </div>
+
+    <div class="panel-nav">
+      <span></span>
+      <button type="button" class="btn btn-primary" data-action="next">Continue</button>
+    </div>
+  </section>
+
+  <!-- ============ STEP 2 — REPRESENTATIVE ============ -->
+  <section class="step-panel" data-step="2" id="panel-2" hidden aria-labelledby="step2-title">
+    <div class="panel-card">
+      <p class="panel-eyebrow">Step 02</p>
+      <h1 class="panel-title" id="step2-title" data-title-individual="Delegate Details" data-title-group="Group Representative">Group Representative</h1>
+      <p class="panel-sub" id="step2-sub">The group representative will complete the registration and payment on behalf of all delegates in this group.</p>
+
+      <form class="field-grid" id="repForm" novalidate>
+        <div class="field">
+          <label for="repName">Full Name</label>
+          <input type="text" id="repName" name="repName" autocomplete="name" required>
+          <span class="field-error" id="err-repName" role="alert"></span>
+        </div>
+        <div class="field">
+          <label for="repEmail">Email Address</label>
+          <input type="email" id="repEmail" name="repEmail" autocomplete="email" required>
+          <span class="field-error" id="err-repEmail" role="alert"></span>
+        </div>
+        <div class="field">
+          <label for="repMobile">Mobile Number</label>
+          <input type="tel" id="repMobile" name="repMobile" autocomplete="tel" inputmode="numeric" required>
+          <span class="field-error" id="err-repMobile" role="alert"></span>
+        </div>
+        <div class="field">
+          <label for="repWhatsapp">WhatsApp Number</label>
+          <input type="tel" id="repWhatsapp" name="repWhatsapp" inputmode="numeric" required>
+          <span class="field-error" id="err-repWhatsapp" role="alert"></span>
+        </div>
+        <div class="field">
+          <label for="repCollege">College / Institution</label>
+          <input type="text" id="repCollege" name="repCollege" required>
+          <span class="field-error" id="err-repCollege" role="alert"></span>
+        </div>
+        <div class="field">
+          <label for="repCity">City</label>
+          <input type="text" id="repCity" name="repCity" required>
+          <span class="field-error" id="err-repCity" role="alert"></span>
+        </div>
+      </form>
+    </div>
+
+    <div class="panel-nav">
+      <button type="button" class="btn btn-ghost" data-action="back">Back</button>
+      <button type="button" class="btn btn-primary" data-action="next">Continue</button>
+    </div>
+  </section>
+
+  <!-- ============ STEP 3 — DELEGATES ============ -->
+  <section class="step-panel" data-step="3" id="panel-3" hidden aria-labelledby="step3-title">
+    <div class="panel-card">
+      <p class="panel-eyebrow">Step 03</p>
+      <h1 class="panel-title" id="step3-title">Delegate Details</h1>
+      <p class="panel-sub">Enter the details for each delegate in your delegation. Committee and portfolio selection happens in the next step.</p>
+
+      <div class="delegate-list" id="delegateList"></div>
+    </div>
+
+    <div class="panel-nav">
+      <button type="button" class="btn btn-ghost" data-action="back">Back</button>
+      <button type="button" class="btn btn-primary" data-action="next">Continue</button>
+    </div>
+  </section>
+
+  <!-- ============ STEP 4 — PORTFOLIOS ============ -->
+  <section class="step-panel" data-step="4" id="panel-4" hidden aria-labelledby="step4-title">
+    <div class="panel-card">
+      <p class="panel-eyebrow">Step 04</p>
+      <h1 class="panel-title" id="step4-title">Committee &amp; Portfolio</h1>
+      <p class="panel-sub">Each delegate selects a committee and two portfolio preferences &mdash; a first choice and a second choice. Preferences are not final allocations, so different delegates may prefer the same portfolio.</p>
+
+      <div class="group-overview" id="groupOverview" hidden>
+        <h2 class="overview-title">Your Group</h2>
+        <p class="overview-size" id="overviewSize"></p>
+        <ul class="overview-list" id="overviewList"></ul>
+      </div>
+
+      <div class="portfolio-delegates" id="portfolioDelegates"></div>
+    </div>
+
+    <div class="panel-nav">
+      <button type="button" class="btn btn-ghost" data-action="back">Back</button>
+      <button type="button" class="btn btn-primary" data-action="next">Continue</button>
+    </div>
+  </section>
+
+  <!-- ============ STEP 5 — PAYMENT ============ -->
+  <section class="step-panel" data-step="5" id="panel-5" hidden aria-labelledby="step5-title">
+    <div class="panel-card">
+      <p class="panel-eyebrow">Step 05</p>
+      <h1 class="panel-title" id="step5-title">Payment</h1>
+      <p class="panel-sub">Please complete one payment for the entire group.</p>
+
+      <div class="price-summary" id="priceSummary">
+        <div class="price-row"><span>Registration Type</span><strong id="priceRegType">—</strong></div>
+        <div class="price-row"><span>Number of Delegates</span><strong id="priceDelegateCount">—</strong></div>
+        <div class="price-row"><span>Price Per Delegate</span><strong id="pricePerDelegate">—</strong></div>
+        <div class="price-row price-total"><span>Total Amount</span><strong id="priceTotal">—</strong></div>
+      </div>
+
+      <div class="pay-grid">
+        <div class="qr-card">
+          <p class="qr-label">Scan to Pay</p>
+          <img src="scanner.jpeg" alt="Official AIKTCMUN payment QR code" class="qr-image">
+          <p class="qr-note">Scan with any UPI app to pay the exact total amount shown above.</p>
+        </div>
+
+        <form class="field-grid single-col" id="paymentForm" novalidate>
+          <div class="field">
+            <label for="txnId">Transaction ID / UTR Number</label>
+            <input type="text" id="txnId" name="txnId" required>
+            <span class="field-error" id="err-txnId" role="alert"></span>
+          </div>
+          <div class="field">
+            <label for="txnScreenshot">Payment Screenshot</label>
+            <input type="file" id="txnScreenshot" name="txnScreenshot" accept="image/*" required>
+            <span class="field-hint" id="screenshotName">No file selected</span>
+            <span class="field-error" id="err-txnScreenshot" role="alert"></span>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <div class="panel-nav">
+      <button type="button" class="btn btn-ghost" data-action="back">Back</button>
+      <button type="button" class="btn btn-primary" data-action="next">Continue</button>
+    </div>
+  </section>
+
+  <!-- ============ STEP 6 — REVIEW ============ -->
+  <section class="step-panel" data-step="6" id="panel-6" hidden aria-labelledby="step6-title">
+    <div class="panel-card">
+      <p class="panel-eyebrow">Step 06</p>
+      <h1 class="panel-title" id="step6-title">Review Your Registration</h1>
+      <p class="panel-sub">Please verify every detail before submitting. Use Edit to return to any section.</p>
+
+      <div class="review-section" id="reviewRepresentative"></div>
+      <div class="review-section" id="reviewRegistration"></div>
+      <div class="review-section" id="reviewDelegates"></div>
+      <div class="review-section" id="reviewPayment"></div>
+
+      <label class="confirm-check">
+        <input type="checkbox" id="confirmAccurate">
+        <span>I confirm that all information provided above is accurate.</span>
+      </label>
+      <div class="field-error" id="err-confirmAccurate" role="alert"></div>
+    </div>
+
+    <div class="panel-nav">
+      <button type="button" class="btn btn-ghost" data-action="back">Back</button>
+      <button type="button" class="btn btn-primary" data-action="submit">Submit Registration</button>
+    </div>
+  </section>
+
+  <!-- ============ STEP 7 — CONFIRMATION ============ -->
+  <section class="step-panel" data-step="7" id="panel-7" hidden aria-labelledby="step7-title">
+    <div class="panel-card confirmation-card">
+      <div class="seal-mark" aria-hidden="true">&#10003;</div>
+      <p class="panel-eyebrow center">Registration Submitted</p>
+      <h1 class="panel-title center" id="step7-title">Your registration details have been recorded.</h1>
+
+      <div class="group-id-block">
+        <span class="group-id-label">Group ID</span>
+        <span class="group-id-value" id="groupIdValue">—</span>
+      </div>
+
+      <div class="event-recap">
+        <span class="recap-name">AIKTCMUN 2026</span>
+        <span class="recap-line">18–19 September 2026</span>
+        <span class="recap-line">AIKTC, New Panvel</span>
+      </div>
+
+      <div class="whatsapp-card">
+        <p class="whatsapp-copy">Join the official participants group for MUN</p>
+        <a class="btn btn-whatsapp" href="https://chat.whatsapp.com/JSM9M4Oi2ht7XM90wMYVdN" target="_blank" rel="noopener noreferrer">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.288.173-1.412-.074-.124-.272-.198-.57-.347z"/><path d="M12.004 2C6.486 2 2 6.486 2 12.004c0 1.858.51 3.596 1.397 5.084L2 22l5.06-1.362a9.94 9.94 0 0 0 4.944 1.328h.004c5.518 0 10.004-4.486 10.004-10.004C22.012 6.486 17.522 2 12.004 2zm0 18.2h-.003a8.16 8.16 0 0 1-4.16-1.14l-.298-.177-3.005.809.804-2.93-.194-.301a8.13 8.13 0 0 1-1.253-4.365c0-4.507 3.667-8.174 8.113-8.174 2.168 0 4.204.845 5.737 2.38a8.06 8.06 0 0 1 2.376 5.737c0 4.507-3.667 8.161-8.117 8.161z"/></svg>
+          Join Official Participants Group
+        </a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <p>AIKTCMUN 2026 &middot; AIKTC Debate &amp; Dialogue Club &middot; New Panvel</p>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
